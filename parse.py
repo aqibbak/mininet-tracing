@@ -53,7 +53,6 @@ parser.add_argument('--window-sec', '--window',
                     dest="window_sec",
                     type=float,
                     default=0.01)
-
 parser.add_argument('--hline',
                     type=float,
                     default=None)
@@ -659,8 +658,7 @@ def plot_scheduling_history(containerstats, linkstats, outfile, title = None, ex
             if container not in colors:
                 colors[container] = COLOR_LIST[container_index]
                 container_index += 1
-
-    # Find start and end times.
+# Find start and end times.
     start_time = 1e10
     end_time = 0.0
     for cpu, cpustats in containerstats.iteritems():
@@ -766,6 +764,5 @@ def plot(containerstats, linkstats):
                               title="History of inter-dequeue times",
                               window_sec=args.window_sec)
     return
-
 containerstats, linkstats = parse(args.file, args)
 plot(containerstats, linkstats)
